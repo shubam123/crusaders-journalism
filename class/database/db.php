@@ -37,7 +37,7 @@
 		}
 
 		//function to insert data in database
-		function insertData($insertQuery)
+		function makeQuery($insertQuery)
 		{
 			return mysqli_query($this->connection,$insertQuery);
 		}

@@ -66,6 +66,8 @@
 
 
 
+                <!-- modals -->
+
                     <div class="modal fade" id="loginModal" role="dialog">
                         <div class="modal-dialog">
 
@@ -76,20 +78,28 @@
                                   <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Login</h4>
                                 </div>
                                 <div class="modal-body">
-                                  <form role="form">
+
+                                <!-- form to login-->
+                                  <form role="form" method="POST" action="../controller/login.php">
                                     <div class="form-group">
-                                      <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-                                      <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+                                      <label for="username"><span class="glyphicon glyphicon-user"></span> Username</label>
+                                      <input type="text" class="form-control" id="username" name="username" placeholder="Enter email or username" required="true">
                                     </div>
+
                                     <div class="form-group">
-                                      <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-                                      <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                                      <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                                      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required="true">
                                     </div>
+
                                     <div class="checkbox">
                                       <label><input type="checkbox" value="" checked>Remember me</label>
                                     </div>
-                                    <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+
+                                    <button type="submit" class="btn btn-default btn-success btn-block" name="login"><span class="glyphicon glyphicon-off"></span> Login</button>
                                   </form>
+                                  <!-- form ends-->
+
+
                                 </div>
                                 <div class="modal-footer">
                                   <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
@@ -99,6 +109,7 @@
                             </div>
                         </div>
                     </div>
+
 
                     <div class="modal fade" id="signupModal" role="dialog">
                         <div class="modal-dialog">
@@ -107,45 +118,85 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Signup</h4>
+                                  <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span>Signup</h4>
                                 </div>
                                 <div class="modal-body">
 
+                                <!-- form to signup -->
+                                  <form role="form" method="POST" action="../controller/signup.php">
 
-                                  <form role="form">
                                     <div class="form-group">
-                                      <label for="usrname"><span class="glyphicon glyphicon-user"></span>First name:</label>
-                                      <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+                                      <label for="fname"><span class="glyphicon glyphicon-user"></span>First name:</label>
+                                      <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter first name" required="true">
                                     </div>
+
                                     <div class="form-group">
-                                      <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Last name:</label>
-                                      <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                                      <label for="lname"><span class="glyphicon glyphicon-eye-open"></span>Last name:</label>
+                                      <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter last name" required="true">
                                     </div>
+
+                                    <div class="form-group">
+                                      <label for="gender"><span class="glyphicon glyphicon-eye-open"></span>Gender:</label>
+                                        <div class="row text-center">
+                                            <div class="col-xs-4">
+                                            <input class="form-control" type="radio" name="gender" value="male" checked/>
+                                            Male
+                                            </div>
+                                            <div class="col-xs-4">
+                                            <input class="form-control" type="radio" name="gender" value="female" />
+                                            Female
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                      <label for="email"><span class="glyphicon glyphicon-user"></span>Email-id:</label>
+                                      <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required="true">
+                                    </div>
+
+                                    <div class="form-group">
+                                      <label for="username"><span class="glyphicon glyphicon-user"></span>Username:</label>
+                                      <input type="text" class="form-control" id="username" name="username" placeholder="Enter date of birth" required="true">
+                                    </div>
+
+
+                                    <div class="form-group">
+                                      <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password:</label>
+                                      <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required="true">
+                                    </div>
+
+                                    
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="" checked>Remember me</label>
+                                      <label><input type="checkbox" value="" required="true">You have read our Terms&Services</label>
                                     </div>
-                                    <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Signup</button>
+                                    
+                                    <button type="submit" class="btn btn-default btn-success btn-block" name="submit"><span class="glyphicon glyphicon-off"></span> Signup</button>
                                   </form>
 
+                                <!-- form ends here -->
+
 
 
 
                                 </div>
-                                <div class="modal-footer">
-                                  <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                                  <p>Not a member? <a href="#">Sign Up</a></p>
-                                  <p>Forgot <a href="#">Password?</a></p>
-                                </div>
+
                             </div>
                         </div>
                     </div>
 
 
-
-
-
-
-
+                    <style>
+                      .modal-header, h4, .close {
+                          background-color: #5cb85c;
+                          color:white !important;
+                          text-align: center;
+                          font-size: 30px;
+                      }
+                      .modal-footer {
+                          background-color: #f9f9f9;
+                      }
+                      </style>
 
         <?php
 

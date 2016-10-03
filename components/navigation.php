@@ -23,7 +23,6 @@
                 {
                 ?>
 
-
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -225,7 +224,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../controller/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -349,11 +348,6 @@
 
 
 
-
-
-
-
-
                     <!-- Not logged in-->
                     <?php 
                 }
@@ -371,18 +365,6 @@
                 <li>
                     <a class="" id ="login-btn">Login</a>
                 </li>
-
-                  <style>
-                      .modal-header, h4, .close {
-                          background-color: #5cb85c;
-                          color:white !important;
-                          text-align: center;
-                          font-size: 30px;
-                      }
-                      .modal-footer {
-                          background-color: #f9f9f9;
-                      }
-                      </style>
 
 
                 <li><strong>/</strong></li>
