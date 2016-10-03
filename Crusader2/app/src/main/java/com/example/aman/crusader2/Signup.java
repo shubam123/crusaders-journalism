@@ -132,7 +132,10 @@ public class Signup extends AppCompatActivity {
                 final String aJsonString = jObject.getString("code");
 
 
+
                 Signup.this.runOnUiThread(new Runnable() {
+
+                   // SaveGlobally obj=new SaveGlobally();
 
                     @Override
                     public void run() {
@@ -142,10 +145,10 @@ public class Signup extends AppCompatActivity {
                         }
 
                         if (aJsonString.equals("1")) {
-                            tv.setText("Sign up successful");
+                            tv.setText("Sign up successful  :  "+((SaveGlobally) this.getApplication()).getFname());
                             Toast.makeText(Signup.this , "Sign up successful. Login to continue" , Toast.LENGTH_LONG).show();
-                            Intent i=new Intent(Signup.this,MainActivity.class);
-                            startActivity(i);
+//                            Intent i=new Intent(Signup.this,MainActivity.class);
+//                            startActivity(i);
                         }
 
 
