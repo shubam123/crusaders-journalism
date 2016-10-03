@@ -131,14 +131,22 @@ public class MainActivity extends AppCompatActivity {
 
                 //output.append(responseOutput.toString());
 
+                SaveGlobally obj=new SaveGlobally();
+
                 JSONObject jObject = new JSONObject(responseOutput.toString());
                 final String aJsonString = jObject.getString("code");
                 final String fname = jObject.getString("fname");
+                obj.setFname(fname);
                 final String user_id = jObject.getString("user_id");
+                obj.setUser_id(user_id);
                 final String lname = jObject.getString("lname");
+                obj.setLname(lname);
                 final String gender = jObject.getString("gender");
+                obj.setGender(gender);
                 final String username = jObject.getString("username");
+                obj.setUsername(username);
                 final String password = jObject.getString("password");
+                obj.setPassword(password);
 
 
                 MainActivity.this.runOnUiThread(new Runnable() {
@@ -157,7 +165,8 @@ public class MainActivity extends AppCompatActivity {
                         if(aJsonString.equals("1")) {
 
                             //tv.setText("Login Successfull");
-                            //Intent i=new Intent(MainActivity.this,Signup.class);
+                            Intent i=new Intent(MainActivity.this,Signup.class);
+                            startActivity(i);
                         }
                     }
                 });
