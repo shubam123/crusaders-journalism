@@ -1,5 +1,6 @@
 package com.example.aman.crusader2;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     EditText et1, et2;
     String user, pass;
     TextView tv;
+    String username,password,lname,fname,gender,email,user_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +57,19 @@ public class MainActivity extends AppCompatActivity {
         tv = (TextView) findViewById(R.id.textView);
 
 
+        b2.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent i=new Intent(MainActivity.this,Signup.class);
+                startActivity(i);
+            }
+        });
+
         b1.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
+
 
 //            new JSONTask().execute("http://ec2-52-66-4-99.ap-south-1.compute.amazonaws.com/first.php");
 
@@ -66,8 +78,9 @@ public class MainActivity extends AppCompatActivity {
 
                 //tv.setText(st);
 
-                PostClass obj=new PostClass(et1.getText().toString(), et2.getText().toString());
+                PostClass obj=new PostClass(et1.getText().toString().trim(), et2.getText().toString().trim());
                 obj.execute();
+
 
             }
 
@@ -92,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(String... params) {
             try {
 
-                URL url = new URL("http://ec2-52-66-4-99.ap-south-1.compute.amazonaws.com/first.php");
+                URL url = new URL("http://ec2-52-66-4-99.ap-south-1.compute.amazonaws.com/crusaders/mobileJson/login.php");
 
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 String urlParameters = String.format("usernameValue=%s&passValue=%s",user,pass );
@@ -105,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 dStream.flush();
                 dStream.close();
                 int responseCode = connection.getResponseCode();
-                final StringBuilder output = new StringBuilder("");
+                //StringBuilder output = new StringBuilder("");
                 //output.append(System.getProperty("line.separator") + "Request Parameters " + urlParameters);
                 //output.append(System.getProperty("line.separator") + "Response Code " + responseCode);
                 BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -120,18 +133,32 @@ public class MainActivity extends AppCompatActivity {
 
                 JSONObject jObject = new JSONObject(responseOutput.toString());
                 final String aJsonString = jObject.getString("code");
-
+                final String fname = jObject.getString("fname");
+                final String user_id = jObject.getString("user_id");
+                final String lname = jObject.getString("lname");
+                final String gender = jObject.getString("gender");
+                final String username = jObject.getString("username");
+                final String password = jObject.getString("password");
 
 
                 MainActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
+                        tv.setText(user_id +"\n" +fname+"\n" +lname+"\n" +gender+"\n" +username+"\n" +password);
 
-                        if(aJsonString.equals("0"))
-                            tv.setText("Credentials are wrong. Try Again !");
+                        if(aJsonString.equals("0")) {
+                            Toast.makeText(MainActivity.this , "Credentials are wrong. Try Again !" , Toast.LENGTH_LONG).show();
+                           // tv.setText("Credentials are wrong. Try Again !");
+                            et1.setText("");
+                            et2.setText("");
+                        }
 
+                        if(aJsonString.equals("1")) {
 
+                            //tv.setText("Login Successfull");
+                            //Intent i=new Intent(MainActivity.this,Signup.class);
+                        }
                     }
                 });
 
