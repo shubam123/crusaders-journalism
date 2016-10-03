@@ -1,5 +1,6 @@
 package com.example.aman.crusader2;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -101,7 +103,7 @@ public class Signup extends AppCompatActivity {
         protected Void doInBackground(String... params) {
             try {
 
-                URL url = new URL("http://ec2-52-66-4-99.ap-south-1.compute.amazonaws.com/second.php");
+                URL url = new URL("http://ec2-52-66-4-99.ap-south-1.compute.amazonaws.com/crusaders/mobileJson/signup.php");
 
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
@@ -113,7 +115,7 @@ public class Signup extends AppCompatActivity {
                 dStream.flush();
                 dStream.close();
                 int responseCode = connection.getResponseCode();
-                final StringBuilder output = new StringBuilder("");
+               // final StringBuilder output = new StringBuilder("");
                 //output.append(System.getProperty("line.separator") + "Request Parameters " + urlParameters);
                 //output.append(System.getProperty("line.separator") + "Response Code " + responseCode);
                 BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -141,6 +143,9 @@ public class Signup extends AppCompatActivity {
 
                         if (aJsonString.equals("1")) {
                             tv.setText("Sign up successful");
+                            Toast.makeText(Signup.this , "Sign up successful. Login to continue" , Toast.LENGTH_LONG).show();
+                            Intent i=new Intent(Signup.this,MainActivity.class);
+                            startActivity(i);
                         }
 
 
