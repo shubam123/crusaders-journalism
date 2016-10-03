@@ -190,7 +190,7 @@
             </ul>
             <!-- /.navbar-top-links -->
 
-                        <script>
+            <script>
                 $(document).ready(function(){
                     
                     $("#upload-video").click(function(){
