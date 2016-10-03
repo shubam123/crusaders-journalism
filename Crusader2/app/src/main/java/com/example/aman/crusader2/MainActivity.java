@@ -1,5 +1,6 @@
 package com.example.aman.crusader2;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -54,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
         b2 = (Button) findViewById(R.id.button2);
         tv = (TextView) findViewById(R.id.textView);
 
+
+        b2.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent i=new Intent(MainActivity.this,Signup.class);
+                startActivity(i);
+            }
+        });
 
         b1.setOnClickListener(new View.OnClickListener() {
 
@@ -128,10 +138,15 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
 
-                        if(aJsonString.equals("0"))
+                        if(aJsonString.equals("0")) {
                             tv.setText("Credentials are wrong. Try Again !");
-
-
+                            et1.setText("");
+                            et2.setText("");
+                        }
+//
+//                        if(aJsonString.equals("1")) {
+//                            Intent i=new Intent(MainActivity.this,Signup.class);
+//                        }
                     }
                 });
 

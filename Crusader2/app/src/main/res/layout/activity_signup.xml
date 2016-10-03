@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_signup"
     android:layout_width="match_parent"
@@ -10,4 +10,158 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.aman.crusader2.Signup">
 
-</RelativeLayout>
+    <EditText
+        android:layout_width="184dp"
+        android:layout_height="30dp"
+        android:inputType="textPersonName"
+        android:text=" "
+        android:ems="10"
+        android:layout_x="150dp"
+        android:layout_y="40dp"
+        android:id="@+id/editText3"
+        android:textSize="10sp" />
+
+    <TextView
+        android:text="First Name"
+        android:layout_width="101dp"
+        android:layout_height="29dp"
+        android:layout_x="30dp"
+        android:layout_y="50dp"
+        android:id="@+id/textView3" />
+
+    <TextView
+        android:text="Last  Name"
+        android:layout_width="101dp"
+        android:layout_height="29dp"
+        android:layout_x="30dp"
+        android:layout_y="100dp"
+        android:id="@+id/textView4" />
+
+    <EditText
+        android:layout_width="184dp"
+        android:layout_height="30dp"
+        android:inputType="textPersonName"
+        android:text=" "
+        android:ems="10"
+        android:layout_x="150dp"
+        android:layout_y="90dp"
+        android:id="@+id/editText4"
+        android:textSize="10sp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="150dp"
+        android:layout_y="140dp" >
+
+    </RadioGroup>
+
+    <TextView
+        android:text="Username"
+        android:layout_width="101dp"
+        android:layout_height="29dp"
+        android:layout_x="30dp"
+        android:layout_y="283dp"
+        android:id="@+id/textView7" />
+
+    <TextView
+        android:text="Password"
+        android:layout_width="101dp"
+        android:layout_height="29dp"
+        android:layout_x="30dp"
+        android:layout_y="333dp"
+        android:id="@+id/textView8" />
+
+    <TextView
+        android:text="E-mail ID"
+        android:layout_width="101dp"
+        android:layout_height="29dp"
+        android:layout_x="30dp"
+        android:layout_y="233dp"
+        android:id="@+id/textView6" />
+
+    <TextView
+        android:text="Gender"
+        android:layout_width="101dp"
+        android:layout_height="29dp"
+        android:layout_x="30dp"
+        android:layout_y="175dp"
+        android:id="@+id/textView5" />
+
+    <EditText
+        android:layout_width="184dp"
+        android:layout_height="30dp"
+        android:inputType="textPersonName"
+        android:text=" "
+        android:ems="10"
+        android:layout_x="150dp"
+        android:layout_y="225dp"
+        android:id="@+id/editText5"
+        android:textSize="10sp" />
+
+    <EditText
+        android:layout_width="184dp"
+        android:layout_height="30dp"
+        android:inputType="textPersonName"
+        android:text=" "
+        android:ems="10"
+        android:layout_x="150dp"
+        android:layout_y="273dp"
+        android:id="@+id/editText6"
+        android:textSize="10sp" />
+
+    <EditText
+        android:layout_height="30dp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_x="150dp"
+        android:layout_y="323dp"
+        android:layout_width="184dp"
+        android:id="@+id/editText7"
+        android:textSize="10sp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="150dp"
+        android:layout_y="160dp"
+        android:id="@+id/radioGroup">
+
+        <RadioButton
+            android:text="Male"
+            android:id="@+id/radioButton1"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:layout_width="50dp"
+            android:textSize="8sp"
+            android:layout_x="148dp"
+            android:layout_y="160dp" />
+
+        <RadioButton
+            android:text="Female"
+            android:id="@+id/radioButton2"
+            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:textSize="8sp"
+            android:layout_x="148dp"
+            android:layout_y="180dp"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <Button
+        android:text="Sign Up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="18dp"
+        android:layout_y="419dp"
+        android:id="@+id/button3" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="203dp"
+        android:layout_height="113dp"
+        android:layout_x="142dp"
+        android:layout_y="372dp"
+        android:id="@+id/textView99" />
+
+</AbsoluteLayout>
