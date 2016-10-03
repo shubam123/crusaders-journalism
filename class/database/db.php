@@ -19,9 +19,9 @@
 					$this->database="crusaders";
 				break;
 				case "":
-				case "":
-					$this->host="ec2-52-66-4-99.ap-south-1.compute.amazonaws.com";
-					$this->user="shubam01";
+				case "ec2-52-66-4-99.ap-south-1.compute.amazonaws.com":
+					$this->host="localhost";
+					$this->user="root";
 					$this->password="1q2w3e";
 					$this->database="crusaders";
 				break;
