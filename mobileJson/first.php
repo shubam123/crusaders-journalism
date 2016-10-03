@@ -1,7 +1,7 @@
 <?php 
  
-    $user   = urldecode($_REQUEST['usernameValue']);
-    $pass   = urldecode($_REQUEST['passValue']);
+    $user   = urldecode($_POST['usernameValue']);
+    $pass   = urldecode($_POST['passValue']);
     $result = Array();   
     
     if($user == "shubam" && $pass == "shubam")
