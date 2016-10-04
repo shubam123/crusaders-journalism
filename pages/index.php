@@ -212,31 +212,47 @@
                                 <div class="modal-body">
 
                                 <!-- form to upload video-->
-                                  <form role="form" method="POST" action="../controller/login.php" >
-                                    <div class="form-group">
-                                      <label for="username"><span class="glyphicon glyphicon-user"></span> Username</label>
-                                      <input type="text" class="form-control" id="username" name="username" placeholder="Enter email or username" required="true">
-                                    </div>
+                                  <form role="form" method="POST" action="../controller/upload_video.php" enctype="multipart/form-data" >
 
-                                    <div class="form-group">
-                                      <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-                                      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required="true">
-                                    </div>
+                                      <div class="form-group">
+                                        <label for="upload"><span class="glyphicon glyphicon-user"></span>Upload Video:</label>
+                                        <input id="file1" name="file1" type="file" class="form-control" />
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="title"><span class="glyphicon glyphicon-user"></span>Title:</label>
+                                          <input type="text" class="form-control" name="video_title" placeholder="Enter Title" required="true"/>
+                                      </div>
+                                     
+                                      <div class="form-group">
+                                          <label for="description"><span class="glyphicon glyphicon-user"></span>Description:</label>
+                                          <textarea name="video_description" class="form-control" placeholder="Enter Description" required></textarea>
+                                      </div>
 
-                                    <div class="checkbox">
-                                      <label><input type="checkbox" value="" checked>Remember me</label>
-                                    </div>
+                                      <div class="form-group">
+                                          <label for="description"><span class="glyphicon glyphicon-user"></span>Tag:</label>
+                                          <select class="form-control" name="video_domain" autofocus required="true">
+                                              <option value="">Select one...</option>
+                                              <?php
+                                                $query = "SELECT * FROM `tags`";
+                                                $result = $db->makeQuery($query);
+                                                while($row = mysqli_fetch_assoc($result))
+                                                {
+                                                  echo "<option value=" . $row['tag_id'] . ">" . $row['tag_name'] . "</option>";
+                                                }
 
-                                    <button type="submit" class="btn btn-default btn-success btn-block" name="login"><span class="glyphicon glyphicon-off"></span> Login</button>
+                                              ?>
+                                           </select>
+                                      </div>
+
+
+                                    <button type="submit" class="btn btn-default btn-success btn-block" name="upload"><span class="glyphicon glyphicon-off"></span> Upload</button>
+
                                   </form>
                                   <!-- form ends-->
 
 
                                 </div>
                                 <div class="modal-footer">
-                                  <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                                  <p>Not a member? <a href="#">Sign Up</a></p>
-                                  <p>Forgot <a href="#">Password?</a></p>
                                 </div>
                             </div>
                         </div>
