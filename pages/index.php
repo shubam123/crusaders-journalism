@@ -2,6 +2,8 @@
 <?php require_once "../class/database/db.php";
     $db=new Database;
     $db->connect();
+
+    include_once "../function.php";
 ?>
 
 
@@ -196,6 +198,246 @@
 
         ?>
 
+        <div id="login">
+          <div class="container-fluid">
+
+          <?php $loc = "../uploads/videos/"; ?>
+            
+            <!-- section1-->
+            <h2><b><u>RECENT</u></b></h2>
+            <br clear="all"><br>
+            <div class="row">
+
+
+            <?php
+
+              $query ="SELECT * FROM `videos` ORDER BY `timestamp` ASC LIMIT 4";
+              $result = $db->makeQuery($query);
+              while($row = mysqli_fetch_assoc($result))
+              {
+                $url = $loc . $row['name'];
+                $title = $row['title'];
+                ?>
+                <div class="col-xs-10 col-sm-3">
+                <a href="video_item.php?video_id=<?php echo $row['id'] ?>">
+                <video height="250px" width="250px" controls>
+                  <source src='<?php echo $url; ?>' type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                </a>
+              </div>
+
+            <?php
+              }
+            ?>
+
+              <div class="col-xs-10 col-sm-3">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <div class="col-xs-10 col-sm-3 ">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              </div>
+
+
+
+
+            <br clear="all"><br>
+
+
+            <!-- section2-->
+            <h2><b><u>NO ACTION</u></b></h2>
+            <br clear="all"><br>
+            <div class="row">
+
+          <?php
+            $query ="SELECT * FROM `videos`";
+            $result = $db->makeQuery($query);
+            while($row = mysqli_fetch_assoc($result))
+            {
+
+              if(noaction($row['timestamp'])>=30)
+              {
+
+          ?>
+
+              <div class="col-xs-10 col-sm-3">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+          <?php
+              }
+             }
+          ?>
+
+              <div class="col-xs-10 col-sm-3">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div> 
+
+              <div class="col-xs-10 col-sm-3">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>            
+        
+            
+              <div class="col-xs-10 col-sm-3">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>  
+
+              <div class="col-xs-10 col-sm-3">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>  
+
+
+            </div>          
+            
+
+
+            <br clear="all"><br>
+
+            <!-- section3-->
+            <h2><b><u>Successes</u></b></h2>
+            <br clear="all"><br>
+           
+
+            <div class="row">
+
+
+
+             <?php
+
+              $query ="SELECT * FROM `videos` WHERE `action` = 1 LIMIT 4";
+              $result = $db->makeQuery($query);
+              while($row = mysqli_fetch_assoc($result))
+              {
+
+              ?>
+
+              <div class="col-xs-10 col-sm-3">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <?php } ?>
+
+               <div class="col-xs-10 col-sm-3">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <div class="col-xs-10 col-sm-3">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <div class="col-xs-10 col-sm-3">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <div class="col-xs-10 col-sm-3">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+
+        
+            </div>
+
+            <br clear="all"><br>
+
+
+
+            <!-- section4-->
+            <h2><b><u>Nearby:</u></b></h2>
+            <br clear="all"><br>
+            <div class="row">
+
+
+            <div class="col-xs-10 col-sm-3">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <div class="col-xs-10 col-sm-3 ">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <div class="col-xs-10 col-sm-3 ">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <div class="col-xs-10 col-sm-3">
+                <video width="250px" height="250px" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>            
+            </div>
+
+            <br clear="all"><br>
+
+            </div>
+          </div>
+        </div>
+
+
 
 
         <!-- modals -->
@@ -215,7 +457,7 @@
                                   <form role="form" method="POST" action="../controller/upload_video.php" enctype="multipart/form-data" >
 
                                       <div class="form-group">
-                                        <label for="upload"><span class="glyphicon glyphicon-user"></span>Upload Video:</label>
+                                        <label for="upload"><span class="glyphicon glyphicon-user"></span>Video:</label>
                                         <input id="file1" name="file1" type="file" class="form-control" />
                                       </div>
                                       <div class="form-group">
@@ -230,7 +472,7 @@
 
                                       <div class="form-group">
                                           <label for="description"><span class="glyphicon glyphicon-user"></span>Tag:</label>
-                                          <select class="form-control" name="video_domain" autofocus required="true">
+                                          <select class="form-control" name="video_tag" autofocus required="true">
                                               <option value="">Select one...</option>
                                               <?php
                                                 $query = "SELECT * FROM `tags`";
