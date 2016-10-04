@@ -14,23 +14,12 @@
  <div id="wrapper">
 
 
-        <!-- navigation starts-->
-        <?php require "../components/navigation.php" ?>
-        <!-- navigation ends-->
 
 
          <?php 
-        if(!isset($_SESSION['user_id']))
-        {
-        ?>
-
-        	<script type="text/javascript">
-        		window.location="index.php";
-        	</script>
-        <?php 
-   		 }
-   		 else
-   		 {
+        
+   		 if(isset($_SESSION['user_id']) || isset($_SESSION['tag_id']))
+   		 	{
    		 	if(isset($_GET['video_id']))
    		 	{
    		 		$vid = $_GET['video_id'];
@@ -60,7 +49,7 @@
 		        </div>
 	        </div>
 	        <div class="row">
-	        <h2 class="texteft"><b>Title:</b><?php echo $title; ?></h2>
+	        <h2 class="tex-teft"><b>Title:</b><?php echo $title; ?></h2>
 	        <p class="text-justify"><b>Description:</b><?php echo $desc; ?></p>
 	        </div>
 
@@ -70,7 +59,8 @@
 	        <br clear="all">
 
 	        <div class="row">
-	        	<textarea name="new_comment" id="new_comment" class="form-group" placeholder="Enter a comment"></textarea>
+	        	<textarea name="new_comment" id="new_comment" class="form-group" placeholder="Enter a comment" rows="4" cols="50"></textarea>
+	        	<br clear="all"/>
 	        	<input type="button" name="comment" id="cmnt" value="Submit" class="form-group" onclick="add_com();">
 
 	        	<script type="text/javascript">
@@ -127,9 +117,9 @@
 	        			while($row = mysqli_fetch_assoc($result))
 	        			{ 
 	        		?>
-	        			<h3><u><?php $row['user_name'] ?></u>u></h3>
+	        			<h3><u><?php echo $_SESSION['name']."-" . $row['user_name'] ; ?></u></h3>
 	        			<br>
-	        			<p class="text-justify"><?php echo $row['message']; ?></p>
+	        			<p class="text-justify"><?php echo $row['comment']; ?></p>
 	        			<hr>
 
 	        			<?php } ?>

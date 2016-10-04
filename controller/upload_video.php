@@ -26,7 +26,6 @@
 		
 			
 			$uid = $_SESSION['user_id'];
-			echo $file_name;
 
 			$query = "INSERT INTO `videos`(`id`, `name`,`title`, `description`, `tag`, `user_id`) VALUES (NULL,'$file_name', '$title', '$description','$tag', '$uid')";
 			$db->makeQuery($query) or die("Error" . mysqli_error($db->connection));

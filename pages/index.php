@@ -44,23 +44,23 @@
                 <div class="row">
 
                     <div class="col-md-4">
-                        <h3 class="text-center">Center aligned text.</h3>
+                        <h3 class="text-center">CRUSADERS</h3>
 
-                        <p class="text-justify">Justified text.</p>
+                        <p class="text-justify">People's Voice</p>
 
                         <p></p>
                     </div>
 
                     <div class="col-md-4">
-                        <h3 class="text-center">Center aligned text.</h3>
+                        <h3 class="text-center">MAKING A DIFFERENCE</h3>
 
-                        <p class="text-justify">Justified text.</p>
+                        <p class="text-justify">Taking Journalism to the next level.</p>
                     </div>
 
                     <div class="col-md-4">
-                        <h3 class="text-center">Center aligned text.</h3>
+                        <h3 class="text-center">SRM HACKATHON</h3>
 
-                        <p class="text-justify">Justified text.</p>
+                        <p class="text-justify">Some random content.</p>
                     </div>
                 </div>
             </div>
@@ -213,6 +213,7 @@
 
               $query ="SELECT * FROM `videos` ORDER BY `timestamp` ASC LIMIT 4";
               $result = $db->makeQuery($query);
+              
               while($row = mysqli_fetch_assoc($result))
               {
                 $url = $loc . $row['name'];
@@ -224,6 +225,7 @@
                   <source src='<?php echo $url; ?>' type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
+                <p class="text-center"><?php echo $title; ?></p>
                 </a>
               </div>
 
@@ -231,21 +233,6 @@
               }
             ?>
 
-              <div class="col-xs-10 col-sm-3">
-                <video width="250px" height="250px" controls>
-                  <source src="movie.mp4" type="video/mp4">
-                  <source src="movie.ogg" type="video/ogg">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-
-              <div class="col-xs-10 col-sm-3 ">
-                <video width="250px" height="250px" controls>
-                  <source src="movie.mp4" type="video/mp4">
-                  <source src="movie.ogg" type="video/ogg">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
 
               </div>
 
@@ -270,14 +257,18 @@
               {
 
           ?>
-
-              <div class="col-xs-10 col-sm-3">
-                <video width="250px" height="250px" controls>
-                  <source src="movie.mp4" type="video/mp4">
-                  <source src="movie.ogg" type="video/ogg">
+            <?php
+              $url = $loc . $row['name'];
+                $title = $row['title'];
+                ?>
+                <div class="col-xs-10 col-sm-3">
+                <a href="single_item.php?video_id=<?php echo $row['id'] ?>">
+                <video height="250px" width="250px" controls>
+                  <source src='<?php echo $url; ?>' type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
-              </div>
+                <p class="text-center"><?php echo $title; ?></p>
+                </a>
 
           <?php
               }
@@ -290,32 +281,8 @@
                   <source src="movie.ogg" type="video/ogg">
                   Your browser does not support the video tag.
                 </video>
-              </div> 
+              </div>
 
-              <div class="col-xs-10 col-sm-3">
-                <video width="250px" height="250px" controls>
-                  <source src="movie.mp4" type="video/mp4">
-                  <source src="movie.ogg" type="video/ogg">
-                  Your browser does not support the video tag.
-                </video>
-              </div>            
-        
-            
-              <div class="col-xs-10 col-sm-3">
-                <video width="250px" height="250px" controls>
-                  <source src="movie.mp4" type="video/mp4">
-                  <source src="movie.ogg" type="video/ogg">
-                  Your browser does not support the video tag.
-                </video>
-              </div>  
-
-              <div class="col-xs-10 col-sm-3">
-                <video width="250px" height="250px" controls>
-                  <source src="movie.mp4" type="video/mp4">
-                  <source src="movie.ogg" type="video/ogg">
-                  Your browser does not support the video tag.
-                </video>
-              </div>  
 
 
             </div>          
@@ -324,10 +291,11 @@
 
             <br clear="all"><br>
 
+
+
             <!-- section3-->
             <h2><b><u>Successes</u></b></h2>
-            <br clear="all"><br>
-           
+            <br clear="all"><br>          
 
             <div class="row">
 
@@ -337,44 +305,26 @@
 
               $query ="SELECT * FROM `videos` WHERE `action` = 1 LIMIT 4";
               $result = $db->makeQuery($query);
-              while($row = mysqli_fetch_assoc($result))
+             
+             while($row = mysqli_fetch_assoc($result))
               {
-
-              ?>
-
-              <div class="col-xs-10 col-sm-3">
-                <video width="250px" height="250px" controls>
-                  <source src="movie.mp4" type="video/mp4">
-                  <source src="movie.ogg" type="video/ogg">
+                $url = $loc . $row['name'];
+                $title = $row['title'];
+                ?>
+                <div class="col-xs-10 col-sm-3">
+                <a href="single_item.php?video_id=<?php echo $row['id'] ?>">
+                <video height="250px" width="250px" controls>
+                  <source src='<?php echo $url; ?>' type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
+                <p class="text-center"><?php echo $title; ?></p>
+                </a>
               </div>
 
-              <?php } ?>
+            <?php
+              }
+            ?>
 
-               <div class="col-xs-10 col-sm-3">
-                <video width="250px" height="250px" controls>
-                  <source src="movie.mp4" type="video/mp4">
-                  <source src="movie.ogg" type="video/ogg">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-
-              <div class="col-xs-10 col-sm-3">
-                <video width="250px" height="250px" controls>
-                  <source src="movie.mp4" type="video/mp4">
-                  <source src="movie.ogg" type="video/ogg">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-
-              <div class="col-xs-10 col-sm-3">
-                <video width="250px" height="250px" controls>
-                  <source src="movie.mp4" type="video/mp4">
-                  <source src="movie.ogg" type="video/ogg">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
 
               <div class="col-xs-10 col-sm-3">
                 <video width="250px" height="250px" controls>
@@ -422,14 +372,7 @@
                 </video>
               </div>
 
-              <div class="col-xs-10 col-sm-3">
-                <video width="250px" height="250px" controls>
-                  <source src="movie.mp4" type="video/mp4">
-                  <source src="movie.ogg" type="video/ogg">
-                  Your browser does not support the video tag.
-                </video>
-              </div>            
-            </div>
+              
 
             <br clear="all"><br>
 
