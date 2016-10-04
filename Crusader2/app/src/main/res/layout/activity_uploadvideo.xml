@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_uploadvideo"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:weightSum="1"
+    tools:context="com.example.aman.crusader2.uploadvideo">
+
+
+    <TextView
+        android:text="Description"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_x="8dp"
+        android:layout_y="321dp"
+        android:id="@+id/textView_describe"
+        android:textColorLink="?attr/actionMenuTextColor"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_weight="0.06"
+        android:id="@+id/textView_upload" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload"
+        android:id="@+id/button_upload"
+        android:layout_x="0dp"
+        android:layout_y="58dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_weight="0.15"
+        android:id="@+id/textView_select"
+        android:layout_x="4dp"
+        android:layout_y="111dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Video"
+        android:id="@+id/Button_select"
+        android:layout_x="0dp"
+        android:layout_y="175dp" />
+
+    <TextView
+        android:text="Tag"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_x="20dp"
+        android:layout_y="366dp"
+        android:textColorLink="?attr/actionMenuTextColor"
+        android:textColor="@android:color/black"
+        android:id="@+id/textView_tag" />
+
+    <RadioGroup
+        android:layout_width="219dp"
+        android:layout_height="wrap_content"
+        android:layout_x="125dp"
+        android:layout_y="358dp"
+        android:id="@+id/radioGroup">
+
+
+        <RadioButton
+            android:text="Railways"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton1"
+            android:textSize="10dp" />
+
+        <RadioButton
+            android:text="Women and Child Development"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton2"
+            android:textSize="10dp" />
+
+        <RadioButton
+            android:text="Law and Justice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton3"
+            android:textSize="10dp" />
+
+        <RadioButton
+            android:text="Agriculture and Farmers Welfare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton4"
+            android:textSize="10dp" />
+    </RadioGroup>
+
+    <EditText
+        android:layout_width="215dp"
+        android:layout_height="47dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_x="123dp"
+        android:layout_y="296dp"
+        android:id="@+id/editText_desc"
+        android:textSize="12sp" />
+
+    <TextView
+        android:text="Title"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_x="8dp"
+        android:layout_y="256dp"
+        android:id="@+id/textView_title"
+        android:textColorLink="?attr/actionMenuTextColor"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:layout_width="215dp"
+        android:layout_height="47dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_x="127dp"
+        android:layout_y="239dp"
+        android:id="@+id/editText_title"
+        android:textSize="12sp" />
+
+
+</AbsoluteLayout>

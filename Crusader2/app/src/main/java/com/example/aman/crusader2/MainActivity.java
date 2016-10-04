@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void run() {
-                        tv.setText(user_id +"\n" +fname+"\n" +lname+"\n" +gender+"\n" +username+"\n" +password);
+                       // tv.setText(user_id +"\n" +fname+"\n" +lname+"\n" +gender+"\n" +username+"\n" +password);
 
                         if(aJsonString.equals("0")) {
                             Toast.makeText(MainActivity.this , "Credentials are wrong. Try Again !" , Toast.LENGTH_LONG).show();
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
                         if(aJsonString.equals("1")) {
 
                             //tv.setText("Login Successfull");
-                            Intent i=new Intent(MainActivity.this,Signup.class);
+                            Intent i=new Intent(MainActivity.this,uploadvideo.class);
                             startActivity(i);
                         }
                     }
