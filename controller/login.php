@@ -45,6 +45,7 @@
 				$_SESSION['email']=$row['email'];
 				$_SESSION['username']=$row['username'];
 				$_SESSION['password']=$row['password'];
+				$_SESSION['role']=0;
 				header("Location: ../index.html");
 				exit();
 			}

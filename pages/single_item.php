@@ -36,7 +36,7 @@
    		 		$vid = $_GET['video_id'];
    		 		$query="SELECT * FROM `videos` WHERE id='$vid'";
    		 		$result = $db->makeQuery($query);
-   		 		$row = mysqli_fetch_assoc($result)
+   		 		$row = mysqli_fetch_assoc($result);
    		 		
    		 		$name = $row['name'];
    		 		$title = $row['title'];
@@ -53,24 +53,40 @@
         <div class="container-fluid">
 	        <div class="row">
 		        <div class="col-xs-offset-1 col-xs-10">
-		        
 		        <video width="100%" height="400px" controls>
-                  <source src="//stream.flowplayer.org/bauhaus.mp4.mp4" type="video/mp4">
+                  <source src='../uploads/videos/<?php echo $name; ?>' type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
-		        
 		        </div>
 	        </div>
+	        <div class="row">
+	        <h2 class="texteft"><b>Title:</b><?php echo $title; ?></h2>
+	        <p class="text-justify"><b>Description:</b><?php echo $desc; ?></p>
+	        </div>
+
+	        
 
 
 	        <br clear="all">
 
 	        <div class="row">
-	        	<form action="" method="POST">
-	        	<textarea name="new_comment"></textarea>
-	        	<input type="submit" name="comment">
-	        	</form>
+	        	<textarea name="new_comment" id="new_comment" class="form-group" placeholder="Enter a comment"></textarea>
+	        	<input type="button" name="comment" id="cmnt" value="Submit" class="form-group" onclick="add_com();">
+
+	        	<script type="text/javascript">
+	        		function add_com()
+	        		{
+	        			var x = document.getElementById("new_comment").value;
+	        			
+	        			<?php
+	        			echo "window.location = '../controller/add_comment.php?video_id=$vid&comment='+x"; 
+	        			?>
+	        		}
+
+	        	</script>
 	        </div>
+
+	        <?php } ?>
 
 	        
 	        <div class="row">
@@ -84,14 +100,14 @@
 	        		<div class="col-xs-12">
 	        		<?php
 
-	        			$query = "SELECT * FROM `comments` WHERE video_id='$vid_id' and role = 0";
+	        			$query = "SELECT * FROM `comments` WHERE video_id='$vid' and role = 0";
 	        			$result = $db->makeQuery($query);
 	        			while($row = mysqli_fetch_assoc($result))
 	        			{ 
 	        		?>
-	        			<h3><u><?php $row['user_name'] ?></u>u></h3>
+	        			<h3><u><?php echo $row['user_name']; ?></u></h3>
 	        			<br>
-	        			<p class="text-justify"><?php echo $row['message']; ?></p>
+	        			<p class="text-justify"><?php echo $row['comment']; ?></p>
 	        			<hr>
 
         			<?php } ?>
@@ -106,7 +122,7 @@
 	        		<div class="col-xs-12">
 	        		<?php
 
-	        			$query = "SELECT * FROM `comments` WHERE video_id='$vid_id' and role = 1";
+	        			$query = "SELECT * FROM `comments` WHERE video_id='$vid' and role = 1";
 	        			$result = $db->makeQuery($query);
 	        			while($row = mysqli_fetch_assoc($result))
 	        			{ 
@@ -115,6 +131,7 @@
 	        			<br>
 	        			<p class="text-justify"><?php echo $row['message']; ?></p>
 	        			<hr>
+
 	        			<?php } ?>
 	        		</div> 
 
@@ -140,6 +157,6 @@
 
         <?php 
         	}
-        } 
+        
 
         ?>

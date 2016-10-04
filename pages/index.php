@@ -219,7 +219,7 @@
                 $title = $row['title'];
                 ?>
                 <div class="col-xs-10 col-sm-3">
-                <a href="video_item.php?video_id=<?php echo $row['id'] ?>">
+                <a href="single_item.php?video_id=<?php echo $row['id'] ?>">
                 <video height="250px" width="250px" controls>
                   <source src='<?php echo $url; ?>' type="video/mp4">
                   Your browser does not support the video tag.
