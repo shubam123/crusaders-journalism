@@ -13,17 +13,23 @@
 
     $video_id = $_GET['video_id'];
     $comm = $_GET['comment'];
-    $user_id = $_SESSION['user_id'];
     $user_name = $_SESSION['username'];
     $role = $_SESSION['role'];
 
 
+    if(isset($_SESSION['user_id']))
+    {
+    	$user_id = $_SESSION['user_id'];
 		$query = "INSERT INTO `comments`(video_id, user_id, user_name, comment, role) VALUES ('$video_id','$user_id','$user_name','$comm','$role')";
-
+	}
+	if(isset($_SESSION['tag_id']))
+	{
+		$tag_id = $_SESSION['tag_id'];
+		$query = "INSERT INTO `comments`(video_id, user_id, user_name, comment, role) VALUES ('$video_id','$tag_id','$user_name','$comm','$role')";
+	}
 
 		if($db->makeQuery($query))
-		{
-			
+		{		
 			header('Location: ../pages/single_item.php?video_id=' . $video_id);
 			exit();
 			
