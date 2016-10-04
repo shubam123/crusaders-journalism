@@ -1,6 +1,8 @@
 package com.example.aman.crusader2;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -89,6 +91,8 @@ public class Signup extends AppCompatActivity {
 
     }
 
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
+
     private class PostClass extends AsyncTask<String, Void, Void> {
 
 
@@ -131,6 +135,15 @@ public class Signup extends AppCompatActivity {
                 JSONObject jObject = new JSONObject(responseOutput.toString());
                 final String aJsonString = jObject.getString("code");
 
+                final String fname1,lname1,gender1,user_id1,username1,password1;
+
+                SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+                     fname1 = prefs.getString("fname", " ");//"No name defined" is the default value.
+                     lname1= prefs.getString("lname", " ");
+                     gender1 = prefs.getString("gender", " ");
+                     user_id1 = prefs.getString("user_id", " ");
+                     username1 = prefs.getString("username", " ");
+                     password1 = prefs.getString("password", " ");
 
 
                 Signup.this.runOnUiThread(new Runnable() {
@@ -145,7 +158,7 @@ public class Signup extends AppCompatActivity {
                         }
 
                         if (aJsonString.equals("1")) {
-                            tv.setText("Sign up successful  :  "+((SaveGlobally) this.getApplication()).getFname());
+                            tv.setText("Sign up successful  :  "+fname1+ "\n" +lname1+ "\n" +gender1+ "\n" +user_id1+ "\n" +username1+ "\n" +password1);
                             Toast.makeText(Signup.this , "Sign up successful. Login to continue" , Toast.LENGTH_LONG).show();
 //                            Intent i=new Intent(Signup.this,MainActivity.class);
 //                            startActivity(i);
