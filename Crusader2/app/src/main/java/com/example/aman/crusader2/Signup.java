@@ -45,7 +45,7 @@ public class Signup extends AppCompatActivity {
         email = (EditText) findViewById(R.id.editText5);
         user = (EditText) findViewById(R.id.editText6);
         pass = (EditText) findViewById(R.id.editText7);
-        tv = (TextView) findViewById(R.id.textView99);
+
 
         button = (Button) findViewById(R.id.button3);
 
@@ -154,14 +154,15 @@ public class Signup extends AppCompatActivity {
                     public void run() {
 
                         if (aJsonString.equals("0")) {
-                            tv.setText("Sign up failed");
+                            //tv.setText("Sign up failed");
+                            Toast.makeText(Signup.this , "Sign up failed." , Toast.LENGTH_LONG).show();
                         }
 
                         if (aJsonString.equals("1")) {
-                            tv.setText("Sign up successful  :  "+fname1+ "\n" +lname1+ "\n" +gender1+ "\n" +user_id1+ "\n" +username1+ "\n" +password1);
+                           // tv.setText("Sign up successful  :  "+fname1+ "\n" +lname1+ "\n" +gender1+ "\n" +user_id1+ "\n" +username1+ "\n" +password1);
                             Toast.makeText(Signup.this , "Sign up successful. Login to continue" , Toast.LENGTH_LONG).show();
-//                            Intent i=new Intent(Signup.this,MainActivity.class);
-//                            startActivity(i);
+                            Intent i=new Intent(Signup.this,MainActivity.class);
+                            startActivity(i);
                         }
 
 

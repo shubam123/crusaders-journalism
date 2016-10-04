@@ -152,16 +152,8 @@
         android:text="Sign Up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="18dp"
-        android:layout_y="419dp"
+        android:layout_x="125dp"
+        android:layout_y="400dp"
         android:id="@+id/button3" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="203dp"
-        android:layout_height="113dp"
-        android:layout_x="142dp"
-        android:layout_y="372dp"
-        android:id="@+id/textView99" />
 
 </AbsoluteLayout>
