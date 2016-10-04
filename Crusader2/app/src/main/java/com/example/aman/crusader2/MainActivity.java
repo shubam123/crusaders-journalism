@@ -1,6 +1,7 @@
 package com.example.aman.crusader2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
 
     private class PostClass extends AsyncTask<String, Void, Void> {
 
@@ -136,17 +138,28 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject jObject = new JSONObject(responseOutput.toString());
                 final String aJsonString = jObject.getString("code");
                 final String fname = jObject.getString("fname");
-                obj.setFname(fname);
+//                obj.setFname(fname);
                 final String user_id = jObject.getString("user_id");
-                obj.setUser_id(user_id);
+//                obj.setUser_id(user_id);
                 final String lname = jObject.getString("lname");
-                obj.setLname(lname);
+//                obj.setLname(lname);
                 final String gender = jObject.getString("gender");
-                obj.setGender(gender);
+//                obj.setGender(gender);
                 final String username = jObject.getString("username");
-                obj.setUsername(username);
+//                obj.setUsername(username);
                 final String password = jObject.getString("password");
-                obj.setPassword(password);
+//                obj.setPassword(password);
+
+                // MY_PREFS_NAME - a static String variable like:
+
+                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                editor.putString("fname", fname);
+                editor.putString("user_id", user_id);
+                editor.putString("lname", lname);
+                editor.putString("gender",gender);
+                editor.putString("username", username);
+                editor.putString("password", password);
+                editor.apply();
 
 
                 MainActivity.this.runOnUiThread(new Runnable() {
