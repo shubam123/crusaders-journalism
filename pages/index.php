@@ -243,7 +243,7 @@
 
 
             <!-- section2-->
-            <h2><b><u>NO ACTION</u></b></h2>
+            <h2><b><u>NEGLECTED</u></b></h2>
             <br clear="all"><br>
             <div class="row">
 
@@ -294,7 +294,7 @@
 
 
             <!-- section3-->
-            <h2><b><u>Successes</u></b></h2>
+            <h2><b><u>Successful</u></b></h2>
             <br clear="all"><br>          
 
             <div class="row">
@@ -343,7 +343,7 @@
 
 
             <!-- section4-->
-            <h2><b><u>Nearby:</u></b></h2>
+            <h2><b><u>Proximate:</u></b></h2>
             <br clear="all"><br>
             <div class="row">
 
