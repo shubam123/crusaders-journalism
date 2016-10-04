@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
                         if(aJsonString.equals("1")) {
 
                             //tv.setText("Login Successfull");
-                            Intent i=new Intent(MainActivity.this,uploadvideo.class);
+                            Intent i=new Intent(MainActivity.this,Dashboard.class);
                             startActivity(i);
                         }
                     }
